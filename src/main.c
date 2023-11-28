@@ -57,7 +57,7 @@ void	ft_parse_cmds(t_pipex *pipex, char **envp)
 	init_chosen_path(pipex);
 	while (j < 2)
 	{
-		while (pipex->cmd_paths[i])
+		while (pipex->cmd_paths[i] && pipex->cmd[j])
 		{
 			pipex->chosen_path[j][i] = ft_strjoin(pipex->cmd_paths[i], "/");
 			pipex->chosen_path[j][i] = ft_strjoin_p(pipex->chosen_path[j][i],
@@ -86,7 +86,6 @@ int	main(int argc, char **argv, char **envp)
 	{
 		pipex = init_pipex(pipex);
 		ft_check_args(pipex, argv);
-		add_cmd(pipex, argv);
 		ft_parse_cmds(pipex, envp);
 		ft_cleanup(pipex);
 	}
