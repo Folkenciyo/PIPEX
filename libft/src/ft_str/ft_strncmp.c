@@ -6,7 +6,7 @@
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:44:32 by juguerre          #+#    #+#             */
-/*   Updated: 2023/04/24 18:44:34 by juguerre         ###   ########.fr       */
+/*   Updated: 2023/11/25 02:40:59 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	i = 0;
 	counter = 0;
+	if (!s1 || !s2)
+		return (-1);
 	while ((s1[i] != '\0' && s2[i] != '\0') && (i < n))
 	{
 		if (s1[i] == s2[i])

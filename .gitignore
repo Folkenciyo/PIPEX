@@ -1,12 +1,12 @@
+#README
+README.md
+
 # System files
 .DS_Store
 
 # Object files
 obj/
 *.o
-
-# Files
-#main.c
 
 # Executables
 *.out
@@ -17,9 +17,10 @@ obj/
 # GITIGNORE
 #.gitignore
 
-# Makefile
-
-#Makefile
+# FILES
+.txt
+outfile
+infile
 
 # Text directory and files
 test/

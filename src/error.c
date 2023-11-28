@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 15:18:07 by juguerre          #+#    #+#             */
-/*   Updated: 2023/11/25 03:42:40 by juguerre         ###   ########.fr       */
+/*   Created: 2023/11/24 22:17:25 by juguerre          #+#    #+#             */
+/*   Updated: 2023/11/25 02:57:09 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "pipex.h"
 
-size_t	ft_strlen(const char *str)
+void	error_one(char *str_perror, int exit_)
 {
-	size_t	i;
+	perror(str_perror);
+	ft_printf("Error Description: %s\n",
+		strerror(errno));
+	exit(exit_);
+}
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+void	error_two(char *str_perror, char *file, int exit_)
+{
+	perror(str_perror);
+	ft_printf("Error Description: %s\nNo such file or directory: %s\n",
+		strerror(errno), file);
+	exit(exit_);
 }

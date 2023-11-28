@@ -6,7 +6,7 @@
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:34:50 by juguerre          #+#    #+#             */
-/*   Updated: 2023/05/16 19:34:52 by juguerre         ###   ########.fr       */
+/*   Updated: 2023/11/25 01:17:49 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_create_line(char *stack)
 		return (0);
 	i = 0;
 	while (stack[i] != '\n' && stack[i] != '\0')
-			i++;
+		i++;
 	if (stack[i] == '\n')
 		i++;
 	line = malloc(sizeof(char) * i + 1);
