@@ -39,29 +39,22 @@ void	ft_check_args(t_pipex *pipex, char **argv)
 		error_one("Command error\n", EXIT_SUCCESS);
 }
 
-void	ft_parse_cmds(t_pipex *pipex, char **envp)
+void	parse_path(t_pipex *pipex)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	// si no hay path, error FALTA
-	while (ft_strncmp(envp[i], "PATH=", 5) && envp[i])
-		i++;
-	pipex->path = ft_strdup(&envp[i][5]);
-	pipex->cmd_paths = ft_split(pipex->path, ':');
-	free(pipex->path);
-	pipex->path = NULL;
-	i = 0;
-	init_chosen_path(pipex);
 	while (j < 2)
 	{
 		while (pipex->cmd_paths[i] && pipex->cmd[j])
 		{
 			pipex->chosen_path[j][i] = ft_strjoin(pipex->cmd_paths[i], "/");
 			pipex->chosen_path[j][i] = ft_strjoin_p(pipex->chosen_path[j][i],
-					pipex->cmd[j][0]);	
+					pipex->cmd[j][0]);
+			if (access(pipex->chosen_path[j][i], F_OK | X_OK) == 0)
+				pipex->cmds_path[j] = ft_strdup(pipex->chosen_path[j][i]);
 			i++;
 		}
 		pipex->chosen_path[j][i] = NULL;
@@ -71,36 +64,35 @@ void	ft_parse_cmds(t_pipex *pipex, char **envp)
 	pipex->chosen_path[j] = NULL;
 }
 
-void	ft_leaks(void)
+void	ft_parse_cmds(t_pipex *pipex, char **envp)
 {
-	system("leaks -q pipex");
+	int	i;
+
+	i = 0;
+	if (!ft_strncmp(envp[i], "PATH=", 5))
+		error_one("PATH not found", EXIT_SUCCESS);
+	while (ft_strncmp(envp[i], "PATH=", 5) && envp[i])
+		i++;
+	pipex->path = ft_strdup(&envp[i][5]);
+	pipex->cmd_paths = ft_split(pipex->path, ':');
+	free(pipex->path);
+	pipex->path = NULL;
+	init_chosen_path(pipex);
+	parse_path(pipex);
 }
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	*pipex;
 
-	atexit(ft_leaks);
 	pipex = NULL;
 	if (argc == 5)
 	{
-		pipex = init_pipex(pipex);
+		pipex = init_pipex(pipex, argv);
 		ft_check_args(pipex, argv);
 		ft_parse_cmds(pipex, envp);
+		ft_exec(pipex, envp);
 		ft_cleanup(pipex);
 	}
 	return (0);
 }
-
-/* esquema de main
-main()
-{
-	ft_init_pipex() *****
-	ft_check_args() *****
-	ft_parse_cmds() *****
-	ft_add_cmd() *****
-	while (cmds)
-		ft_exec()
-	ft_cleanup()
-}
- */

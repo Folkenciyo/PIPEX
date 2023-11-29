@@ -36,16 +36,21 @@
  */
 typedef struct s_pipex
 {
-	int		fd[2];
+	int		p_fd[2];
 	int		fd_in;
 	int		fd_out;
 	char	***cmd;
 	char	**cmd_paths;
 	char	***chosen_path;
 	char	*path;
+	char	*cmds_path[3];
 	char	*infile;
 	char	*outfile;
 }	t_pipex;
+
+/***** EXECUTABLE PIPEX *****/
+
+void	ft_exec(t_pipex *pipex, char *const *envp);
 
 /***** ERROR FUNCTIONS *****/
 
@@ -55,7 +60,7 @@ void	error_two(char *str_perror, char *file, int exit_);
 
 /***** MEMORY FUNCTIONS *****/
 
-t_pipex	*init_pipex(t_pipex *pipex);
+t_pipex	*init_pipex(t_pipex *pipex, char **argv);
 
 void	init_chosen_path(t_pipex *pipex);
 

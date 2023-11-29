@@ -53,7 +53,7 @@ AR				= ar rcs
 
 #Sources
 
-SRC_FILES	=	main mem error free_mem ft_strjoin_pipex
+SRC_FILES	=	main mem error free_mem ft_strjoin_pipex pipe_exec
 # Files 
 
 SRCS 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

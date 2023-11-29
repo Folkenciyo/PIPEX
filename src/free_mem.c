@@ -6,7 +6,7 @@
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:24:44 by juguerre          #+#    #+#             */
-/*   Updated: 2023/11/28 20:50:15 by juguerre         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:18:12 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_free_str3(char ***str)
 	free(str);
 }
 
-void ft_free_str2(char **str)
+void	ft_free_str2(char **str)
 {
 	int	i;
 
@@ -55,5 +55,7 @@ void	ft_cleanup(t_pipex *pipex)
 	ft_free_str3(pipex->cmd);
 	ft_free_str2(pipex->cmd_paths);
 	ft_free_str3(pipex->chosen_path);
+	free(pipex->cmds_path[0]);
+	free(pipex->cmds_path[1]);
 	free(pipex);
 }
