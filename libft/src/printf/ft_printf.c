@@ -6,7 +6,7 @@
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:45:54 by juguerre          #+#    #+#             */
-/*   Updated: 2023/05/12 13:45:57 by juguerre         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:42:45 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_formats(va_list args, const char format)
 
 	print_length = 0;
 	if (format == 'c')
-	{	
+	{
 		ft_putchar_fd(va_arg(args, int), 1);
 		print_length += 1;
 	}

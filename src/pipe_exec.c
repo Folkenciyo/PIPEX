@@ -6,7 +6,7 @@
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 21:30:11 by juguerre          #+#    #+#             */
-/*   Updated: 2023/11/29 19:50:50 by juguerre         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:44:59 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_exec(t_pipex *pipex, char *const *envp)
 {
 	pid_t	parent;
 
-	if (pipe(pipex->p_fd) == -1) 
+	if (pipe(pipex->p_fd) == -1)
 		error_one("Pipe: ", EXIT_FAILURE);
 	parent = fork();
 	if (parent < 0)

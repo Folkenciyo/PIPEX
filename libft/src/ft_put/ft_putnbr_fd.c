@@ -6,14 +6,14 @@
 /*   By: juguerre <juguerre@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 21:47:55 by juguerre          #+#    #+#             */
-/*   Updated: 2023/05/02 21:47:57 by juguerre         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:42:09 by juguerre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
 void	ft_putnbr_fd(int nb, int fd)
-{	
+{
 	char	c;
 
 	if (nb == -2147483648)
