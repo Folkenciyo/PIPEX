@@ -1,7 +1,7 @@
 <br/>
 <h1 align="center">PIPEX</h1>
 <p align="center">
- <img tyle="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://i.ibb.co/vYyPWyR/pixlr-image-generator-5735e3c1-8210-4348-b7a7-f671a1cf1a34.png" height=50% width=50%>
+ <img tyle="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://i.ibb.co/M6wVHwQ/pixlr-image-generator-5735e3c1-8210-4348-b7a7-f671a1cf1a34.png" height=50% width=50%>
 </p>
 
  <p align="center">
